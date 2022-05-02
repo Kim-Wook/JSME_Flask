@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <script type="text/javascript" language="javascript" src="static/JSME_2022-02-26/jsme/jsme.nocache.js"></script>
+
+    <script>
+        //this function will be called after the JavaScriptApplet code has been loaded.
+        
+        function jsmeOnLoad() {
+            jsmeApplet = new JSApplet.JSME("jsme_container", "380px", "340px", {
+                "options": "query,hydrogens,fullScreenIcon,rbutton"
+            });
+            document.JME = jsmeApplet;
+        }
+        
+        //document.JME = jsmeApplet;
+        function getSmiles() {
+            var data = jsmeApplet.smiles();
+            document.getElementById("jme_output").value = data;
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+
+<table align="center">
+    <tr>
+        <td id="jsme_container"></td>
+    </tr>
+</table>
+
+<table align="center">
+    <tr>
+        <td colspan="3" style="font-weight:bold;">Export chemical structure from applet:</td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" onclick='getSmiles();'>Get Smiles</button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5">
+            <TEXTAREA id="jme_output" ROWS=5 COLS=50></TEXTAREA>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
+
